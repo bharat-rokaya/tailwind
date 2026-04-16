@@ -6,11 +6,12 @@ const loginButton = document.getElementById("login");
 
 loginButton.addEventListener("click", (e) => {
   e.preventDefault();
+  
   const email = emailInput.value;
   const password = passwordInput.value;
+
   emailError.textContent = "";
   passwordError.textContent = "";
-
   loginButton.textContent = "Processing...";
 
   setTimeout(() => {

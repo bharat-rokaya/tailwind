@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-blue-100 flex items-center justify-ceter w-full h-screen">
+    <div class="flex flex-col items-center w-[350px] mx-auto h-auto bg-blue-300 p-8 rounded-lg shadow-lg">
+        <h1 class="font-semibold text-2xl mb-4">Sign up now!</h1>
+        <div class="w-9/10 flex flex-col">
+
+            <label for="username" class="mb-1">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username" class="outline-1 outline-gray-500 focus:outline-gray-800 mb-1 px-2 py-1 rounded-md">
+            <p id="usernameError" class="text-red-500 text-sm mb-1"></p>
+
+            <label for="email" class="mb-1">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email address" class="w-full outline-1 outline-gray-500 focus:outline-gray-800 mb-1 px-2 py-1 rounded-md">
+            <p id="emailError" class="text-red-500 text-sm mb-1"></p>
+
+            <label for="password" class="mb-1">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" class="w-full outline-1 outline-gray-500 focus:outline-gray-800 mb-1 px-2 py-1 rounded-md">
+            <p id="passwordError" class="text-red-500 text-sm mb-1"></p>
+
+            <label for="repeatPassword" class="mb-1">Repeat Password</label>
+            <input type="password" id="repeatPassword" name="repeatPassword" placeholder="Repeat password" class="w-full outline-1 outline-gray-500 focus:outline-gray-800 mb-1 px-2 py-1 rounded-md">
+            <p id="repeatPasswordError" class="text-red-500 text-sm mb-1"></p>
+
+            <button id="signupButton" type="submit" class="w-full rounded-md bg-blue-500 hover:bg-blue-600 text-white my-4 px-6 py-2 transition-transform duration-300 ease hover:-translate-y-1 hover:scale-102">Sign Up</button>
+        </div>
+
+        <a href="login.html">Already have an account? <span class="text-blue-600 hover:underline">Login Now!</span></a>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
