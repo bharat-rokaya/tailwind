@@ -7,8 +7,8 @@ const loginButton = document.getElementById("login");
 loginButton.addEventListener("click", (e) => {
   e.preventDefault();
   
-  const email = emailInput.value;
-  const password = passwordInput.value;
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
 
   emailError.textContent = "";
   passwordError.textContent = "";
@@ -30,9 +30,15 @@ loginButton.addEventListener("click", (e) => {
 
     loginButton.textContent = "Login";
 
-    if (isValidate) {
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const validUser = users.find(u => u.email === email && u.password === password);
+
+    if (isValidate && validUser) {
+      localStorage.setItem("loggedInUser", validUser.username);
       alert("Login successful!");
       window.location.href = "index.html";
+    } else {
+      alert("Invalid email or password")
     }
   }, 1000);
 });

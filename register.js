@@ -74,10 +74,23 @@ registerButton.addEventListener('click', (e) => {
 
     registerButton.textContent = 'Sign Up';
 
-    if(isValid) {
-      alert('Registration successful!');
-      window.location.href = 'login.html';
+
+    if (!isValid) return;
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    const exists = users.find(u => u.username === username);
+
+    if (exists) {
+      alert("User already exists");
+      return;
     }
+
+    const newUser = { username, password, email };
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+    
+    alert("Registration successful!")
+    window.location.href = 'login.html';
 
   },1000);
 });
