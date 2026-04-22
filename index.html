@@ -12,21 +12,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-blue-100 h-screen mx-12 my-4">
+<body class="bg-blue-100 w-fit h-screen mx-6 my-4 sm:mx-12">
+     
   <!-- NAVBAR -->
   <nav class="mb-32">
-    <div class="flex items-center justify-between bg-blue-300 rounded-xl px-3 py-3">
-      <h1 class="text-4xl font-semibold text-blue-500 hover:text-blue-600 ml-4">
+    <div class="flex items-center sticky justify-around bg-blue-300 rounded-xl px-3 py-3">
+      <h1 class=" text-2xl font-semibold text-blue-500 hover:text-blue-600 ml-2 sm:text-4xl md:ml-4">
         Aestic
       </h1>
 
-      <div class="hidden ml-auto outline-1 outline-blue-500 rounded-4xl px-4 py-2 gap-2 lg:flex items-center">
-        <i class="fas fa-search lg:text-xl text-blue-500 hover:text-blue-600 transition-all duration-300 ease cursor-pointer"
-          title="Search"></i>
-        <input type="search" placeholder="Search here..." class="outline-none" />
-      </div>
-
-      <div class="hidden sm:flex gap-6 ml-auto">
+      <div class="hidden md:flex gap-6 ml-auto">
         <a href="#hero"
           class="hover:text-blue-600 transition-all duration-300 ease hover:underline hover:-translate-y-2">Home</a>
         <a href="#about"
@@ -37,9 +32,9 @@
           class="hover:text-blue-600 transition-all duration-300 ease hover:underline hover:-translate-y-2">Contact</a>
       </div>
 
-      <button class="bg-blue-400 hover:bg-blue-500 text-white rounded-xl px-6 py-2 ml-6 transition-all duration-200 ease hover:-translate-y-1 hover:scale-102">Cart<i class="fas fa-shopping-cart ml-2"></i></button>
+      <a href="cart.html" class="bg-blue-400 hover:bg-blue-500 text-white rounded-xl px-4 py-3 ml-6 transitio-all duration-300 ease hover:-translate-y-1 hover:scale-102"><i class="fas fa-shopping-cart ml-2"></i><sup id="cartItem" class="text-[14px] font-semibold text-red-500">0</sup></a>
       <button id="join-us"
-        class="bg-blue-500 text-white px-6 py-2 ml-6 cursor-pointer rounded-xl transition-all duration-200 ease hover:bg-blue-600 hover:scale-102 hover:-translate-y-1">
+        class="bg-blue-500 text-white px-4 py-3 ml-6 cursor-pointer rounded-xl transition-all duration-200 ease hover:bg-blue-600 hover:scale-102 hover:-translate-y-1">
         Join Us<i class="fas fa-user-plus ml-2"></i>
       </button>
     </div>
@@ -179,6 +174,9 @@
   <section id="products" class="mb-32">
     <h1 class="text-3xl text-center font-semibold text-blue-500">Our Products</h1>
     <p class="text-justify my-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem dolor accusamus magni, in unde beatae mollitia rerum est repudiandae quod odio consequuntur aliquam veniam quaerat similique nobis laborum nesciunt fugiat fugit quae aspernatur. Laboriosam optio doloribus iste! Odio deserunt odit sunt culpa laudantium provident, voluptatum, corporis beatae distinctio pariatur aliquid quas ex saepe, ipsa eveniet alias illum minima cumque expedita at veniam dignissimos non. Iusto, odit dolorem. Aliquid amet cum deleniti, id ad blanditiis dignissimos quae totam explicabo suscipit ratione repellat eius, vel molestias. Quasi consequuntur nisi amet officiis reiciendis. Animi voluptas possimus error, voluptatibus aut recusandae alias esse harum odio. Consectetur debitis deserunt provident ut quibusdam corporis minima illum natus quam facere inventore nam illo voluptas incidunt perspiciatis, ab aliquid at adipisci delectus alias dolore, officiis similique. Voluptatem suscipit molestiae debitis laboriosam facilis. Ducimus quaerat velit necessitatibus aspernatur obcaecati blanditiis veritatis libero quidem, et maiores perferendis nam eius nemo impedit ad quibusdam. Expedita quia incidunt in debitis possimus necessitatibus soluta odio, labore quaerat corporis, modi laboriosam perspiciatis inventore dolorem dignissimos doloribus. Iste nisi numquam, corrupti natus maiores placeat id sint unde explicabo vero libero voluptatum quibusdam nulla delectus odio repellendus eveniet nesciunt ipsam! Deserunt maxime dignissimos labore molestias.\</p>
+  
+    <div id="product-list" class="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"></div>
+    <button id="loadMore" class="bg-blue-500 text-white px-4 py-2 mt-8 transition-all duration-200 ease rounded-md hover:bg-blue-600 hover:scale-105 hover:-translate-y-1">Show more<i class="fas fa-arrow-right ml-2"></i></button>
   </section>
 
 
@@ -231,6 +229,7 @@
     </div>
   </section>
 
+  <script src="product.js"></script>
   <script src="contact.js"></script>
   <script src="user.js"></script>
 </body>

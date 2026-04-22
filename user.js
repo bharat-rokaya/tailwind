@@ -1,6 +1,8 @@
 const joinUsButton = document.getElementById('join-us');
-const buyButtons = document.querySelectorAll('#buy');
 const loggedInUser = localStorage.getItem("loggedInUser");
+const buyButtons = document.querySelectorAll('#buy');
+const cart = document.getElementById('cartItem');
+const card = document.getElementById('card');
 
 if (loggedInUser) {
     // Show username with logout icon when logged in
@@ -30,19 +32,37 @@ if (loggedInUser) {
     });
 }
 
-// Buy buttons functionality (unchanged)
-buyButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        button.innerHTML = "Processing...";
-        setTimeout(() => {
-            let purchase = confirm("Are you sure you want to purchase this item?");
-            if (purchase) {
-                alert("Purchase successful! Thank you for your order.");
-                button.innerHTML = "Purchased!";
-            } else {
-                alert("Purchase cancelled.");
-                button.innerHTML = "Buy Now<i class='fas fa-shopping-cart ml-2'></i>";
-            }
-        }, 1000);
-    });
+
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+cart.textContent = cartItems.length;
+
+
+buyButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (loggedInUser) {
+      button.innerHTML = "Processing...";
+      const name = card.querySelector("h3").textContent;
+      const price = card.querySelector("span").textContent;
+      const image = card.querySelector("img").src;
+
+      const product = { name, price, image };
+
+      setTimeout(() => {
+        let purchase = confirm("Are you sure you want to purchase this item?");
+        if (purchase) {
+          alert("Purchase successful! Thank you for your order.");
+          cartItems.push(product);
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+          cart.textContent = cartItems.length;
+          button.innerHTML = "Added <i class='fas fa-check ml-1'></i>";
+        } else {
+          alert("Purchase cancelled.");
+          cart.textContent = "0";
+          button.innerHTML = "Add <i class='fas fa-shopping-cart ml-2'></i>";
+        }
+      }, 1000);
+    } else {
+      alert("Please login to continue shopping");
+    }
+  });
 });
